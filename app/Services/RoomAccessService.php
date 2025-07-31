@@ -13,11 +13,11 @@ class RoomAccessService
 
     public function assign(array $data)
     {
-        if ($this->repository->hasOverlap($data)) {
-            throw ValidationException::withMessages([
-                'overlap' => 'Access overlaps with an existing permission.'
-            ]);
-        }
+//        if ($this->repository->hasOverlap($data)) {
+//            throw ValidationException::withMessages([
+//                'overlap' => 'Access overlaps with an existing permission.'
+//            ]);
+//        }
 
         return $this->repository->create($data);
     }
