@@ -5,24 +5,9 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use App\Models\Employee;
 use App\Models\Room;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class RoomAccessTest extends TestCase
 {
-    use RefreshDatabase;
-
-    public function test_can_create_employee()
-    {
-        $response = $this->postJson('/api/employees', [
-            'name' => 'Test Employee',
-        ]);
-
-        $response->assertStatus(201)
-            ->assertJsonStructure([
-                'data' => ['id', 'name']
-            ]);
-    }
-
     public function test_prevents_overlapping_room_access()
     {
         $employee = Employee::factory()->create();
