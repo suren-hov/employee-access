@@ -69,6 +69,17 @@ Import and use it with a `{{host}}` environment variable pointing to your local 
 
 ---
 
-## Git Strategy for Submission
+## 🔍 How to Test Database-Level Overlap Enforcement
 
-- Make clean commits with descriptive messages, e.g.:
+To verify that overlapping access is blocked **strictly at the database level**, you can comment out the PHP-level check in:
+
+**File:** `app/Services/RoomAccessService.php`
+
+**Comment out these lines:**
+
+```php
+if ($this->repository->hasOverlap($data)) {
+    throw ValidationException::withMessages([
+        'overlap' => 'Access overlaps with an existing permission.'
+    ]);
+}
