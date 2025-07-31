@@ -23,6 +23,13 @@ A Laravel 12 application that manages employee access permissions to rooms with 
 
 ---
 
+## Database Constraints
+
+- A **unique composite index** prevents duplicate room access for the same employee, room, day, and time.
+- A **MySQL trigger `prevent_room_access_overlap`** blocks overlapping access during `INSERT`.
+- A **MySQL trigger `prevent_room_access_overlap_update`** blocks overlapping access during `UPDATE`.
+- These database-level protections guarantee time-slot integrity even if PHP validation is bypassed.
+
 ## Installation
 
 1. Clone the repository:
