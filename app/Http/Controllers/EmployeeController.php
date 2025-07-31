@@ -3,13 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreEmployeeRequest;
+use App\Http\Resources\EmployeeResource;
 use App\Models\Employee;
 
 class EmployeeController extends Controller
 {
-    public function store(StoreEmployeeRequest $request)
+    /**
+     * @param StoreEmployeeRequest $request
+     * @return EmployeeResource
+     */
+    public function store(StoreEmployeeRequest $request): EmployeeResource
     {
         $employee = Employee::create($request->validated());
-        return response()->json($employee, 201);
+        return new EmployeeResource($employee);
     }
 }

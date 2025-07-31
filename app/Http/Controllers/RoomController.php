@@ -3,13 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreRoomRequest;
+use App\Http\Resources\RoomResource;
 use App\Models\Room;
 
 class RoomController extends Controller
 {
-    public function store(StoreRoomRequest $request)
+    /**
+     * @param StoreRoomRequest $request
+     * @return RoomResource
+     */
+    public function store(StoreRoomRequest $request): RoomResource
     {
         $room = Room::create($request->validated());
-        return response()->json($room, 201);
+        return new RoomResource($room);
     }
 }
