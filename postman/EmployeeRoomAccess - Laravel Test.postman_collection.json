@@ -1,0 +1,216 @@
+{
+	"info": {
+		"_postman_id": "129f86dc-7570-4f3e-9417-05cd0dc64287",
+		"name": "EmployeeAccess Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21484781"
+	},
+	"item": [
+		{
+			"name": "Setup",
+			"item": [
+				{
+					"name": "Create Room",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"K7\" \n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/rooms",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"rooms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Employee",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"John\" \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/employees",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"employees"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Access Management",
+			"item": [
+				{
+					"name": "Assign Room Access",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"employee_id\": 1,\n  \"room_id\": 1,\n  \"day_of_week\": \"monday\",\n  \"start_time\": \"11:00\",\n  \"end_time\": \"13:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/room-accesses",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"room-accesses"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Availability Checks",
+			"item": [
+				{
+					"name": "Get Free Rooms Now",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/free-rooms?day_of_week=monday&time=11:00",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"free-rooms"
+							],
+							"query": [
+								{
+									"key": "day_of_week",
+									"value": "monday"
+								},
+								{
+									"key": "time",
+									"value": "11:00"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Available Rooms for Employee",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/employee-available-rooms?day_of_week=monday&time=10:30&employee_id=1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"employee-available-rooms"
+							],
+							"query": [
+								{
+									"key": "day_of_week",
+									"value": "monday"
+								},
+								{
+									"key": "time",
+									"value": "10:30"
+								},
+								{
+									"key": "employee_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
