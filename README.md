@@ -60,6 +60,7 @@ app/Repositories - Repository interfaces and implementations
 app/Services - Business logic services
 database/migrations - Database migration files
 
+Access is managed per weekday (Monday to Sunday) with time ranges. If date-based scheduling was intended, the current structure could be extended.
 
 ---
 
