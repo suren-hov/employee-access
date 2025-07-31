@@ -44,12 +44,15 @@ A Laravel 12 application that manages employee access permissions to rooms with 
    ```bash
    composer install
 
-3. Setup .env file and migrate:
+3. Setup .env file:
 
     ```bash
     cp .env.example .env
     php artisan key:generate
-    php artisan migrate
+    
+4. Migrate and seed:
+    ```bash
+    php artisan migrate --seed
 
 | Method | Endpoint                      | Description                               |
 | ------ | ----------------------------- | ----------------------------------------- |
