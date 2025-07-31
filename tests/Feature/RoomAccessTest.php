@@ -18,7 +18,9 @@ class RoomAccessTest extends TestCase
         ]);
 
         $response->assertStatus(201)
-            ->assertJsonStructure(['id', 'name']);
+            ->assertJsonStructure([
+                'data' => ['id', 'name']
+            ]);
     }
 
     public function test_prevents_overlapping_room_access()
@@ -43,7 +45,9 @@ class RoomAccessTest extends TestCase
             'end_time' => '13:00',
         ]);
 
-        $response->assertStatus(500); // DB-level error
+        $response->assertStatus(422)
+            ->assertJsonValidationErrors('overlap');
+
         $this->assertDatabaseCount('room_accesses', 1);
     }
 }
