@@ -12,6 +12,7 @@ A Laravel 12 application that manages employee access permissions to rooms with 
 - Prevent overlapping access by employee or room
 - Check available rooms for an employee at a given time
 - Check free rooms at a given time
+- Access is managed per weekday (Monday to Sunday) with time ranges.
 
 ---
 
@@ -58,16 +59,10 @@ A Laravel 12 application that manages employee access permissions to rooms with 
 | GET    | /api/employee-available-rooms | List rooms available for employee at time |
 | GET    | /api/free-rooms               | List all free rooms at a given time       |
 
-Code Structure
-app/Models - Eloquent models for Employee, Room, RoomAccess
-app/Enums - Enum for DayOfWeekEnum
-app/Http/Controllers - Controllers for API endpoints
-app/Http/Requests - Form requests for validation
-app/Repositories - Repository interfaces and implementations
-app/Services - Business logic services
-database/migrations - Database migration files
+## API Testing
 
-Access is managed per weekday (Monday to Sunday) with time ranges. If date-based scheduling was intended, the current structure could be extended.
+Postman collection available at `postman/EmployeeRoomAccess.postman_collection.json`  
+Import and use it with a `{{host}}` environment variable pointing to your local backend.
 
 ---
 
