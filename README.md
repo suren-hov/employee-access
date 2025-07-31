@@ -64,7 +64,7 @@ A Laravel 12 application that manages employee access permissions to rooms with 
 
 ## API Testing
 
-Postman collection available at `postman/EmployeeRoomAccess.postman_collection.json`  
+Postman collection available at `public/postman/EmployeeRoomAccess.postman_collection.json`  
 Import and use it with a `{{host}}` environment variable pointing to your local backend.
 
 ---
