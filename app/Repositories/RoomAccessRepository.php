@@ -4,7 +4,6 @@ namespace App\Repositories;
 
 use App\Models\RoomAccess;
 use App\Repositories\Interfaces\RoomAccessRepositoryInterface;
-use Illuminate\Support\Facades\DB;
 
 class RoomAccessRepository implements RoomAccessRepositoryInterface
 {

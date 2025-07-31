@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Resources\RoomResource;
 use App\Models\Room;
 use Illuminate\Http\Request;
-use App\Models\RoomAccess;
 
 class AvailabilityController extends Controller
 {

@@ -45,7 +45,7 @@ class RoomAccessPolicy
      */
     public function delete(User $user, RoomAccess $roomAccess): bool
     {
-        return $user->id === $roomAccess->employee->user_id;
+        return false;
     }
 
     /**
